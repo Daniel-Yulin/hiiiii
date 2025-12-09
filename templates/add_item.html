@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 class="mb-4">上架商品</h2>
+
+<form method="POST" enctype="multipart/form-data" class="bg-white p-4 rounded shadow">
+
+    <div class="mb-3">
+        <label class="form-label">商品內容</label>
+        <input name="content" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">店家</label>
+        <input name="store" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">價格</label>
+        <input name="price" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">分類</label>
+        <select name="category" class="form-control" required>
+            {% for c in categories %}
+            <option value="{{ c }}">{{ c }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">圖片</label>
+        <input type="file" name="image" class="form-control" required>
+    </div>
+
+    <button class="btn btn-primary w-100">確認上架</button>
+</form>
+
+{% endblock %}

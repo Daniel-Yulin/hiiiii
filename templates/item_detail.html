@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="row">
+    <div class="col-md-6">
+        <img src="/uploads/{{ item.image }}" class="img-fluid rounded shadow">
+    </div>
+    <div class="col-md-6">
+
+        <h2>{{ item.content }}</h2>
+        <p class="text-muted">分類：{{ item.category }}</p>
+        <p>店家：{{ item.store }}</p>
+        <p class="fw-bold">價格：{{ item.price }}</p>
+
+        <hr>
+
+        <h4>購買資訊</h4>
+        <form method="POST" action="/buy/{{ item.id }}" class="bg-white p-4 rounded shadow">
+
+            <div class="mb-3">
+                <label class="form-label">地點</label>
+                <input name="location" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">電話</label>
+                <input name="phone" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input name="email" class="form-control" required>
+            </div>
+
+            <button class="btn btn-success w-100">送出訂單</button>
+
+        </form>
+    </div>
+</div>
+
+{% endblock %}
